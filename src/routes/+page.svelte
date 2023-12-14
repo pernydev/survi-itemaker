@@ -10,6 +10,10 @@
 
 	let abilities = [];
 
+	let stats = {
+		
+	}
+
 	let code = '';
 
 	$: {
@@ -107,6 +111,7 @@
 				labelText="Ominaisuuden nimi"
 				placeholder="Salama"
 				helperText="Voit käytää Endown formaattia"
+				bind:value={ability.name}
 			/>
 		</Column>
 		<Column>
@@ -114,6 +119,7 @@
 				labelText="Ominaisuuden energiahinta"
 				placeholder="100"
 				helperText="Käytä kokonaislukuja"
+				bind:value={ability.manaCost}
 			/>
 		</Column>
 		<Column>
@@ -121,6 +127,7 @@
 				labelText="Ominaisuuden cooldown"
 				placeholder="5"
 				helperText="Käytä kokonaislukuja, sekunteina, 0 = ei cooldownia"
+				bind:value={ability.cooldown}
 			/>
 		</Column>
 		<Column>
@@ -128,6 +135,7 @@
 				labelText="Ominaisuuden kuvaus"
 				placeholder="Salama iskee maahan"
 				helperText="Voit käytää Endown formaattia, käytä \n uuden rivin luomiseen"
+				bind:value={ability.description}
 			/>
 		</Column>
 		<Column>
@@ -142,6 +150,7 @@
 					{ id: '4', text: 'HIT' },
 					{ id: '5', text: 'SNEAK' }
 				]}
+				bind:value={ability.trigger}
 			/>
 		</Column>
 	</Row>
@@ -153,5 +162,7 @@
 	/>
 {/each}
 <Button on:click={() => (abilities = [...abilities, {}])}>Lisää ominaisuus</Button>
+
+<h2>Statsei</h2>
 
 <CodeSnippet {code} type="multi" />
