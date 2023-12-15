@@ -11,8 +11,12 @@
 	let abilities = [];
 
 	let stats = {
-		
-	}
+		baseDamage: 0,
+		baseArmor: 0,
+		baseHealth: 0,
+		baseSpeed: 0,
+		baseMana: 0,
+	};
 
 	let code = '';
 
@@ -20,22 +24,7 @@
 		code = `registerItem("${id}", ItemType().apply {
 	name = "${name}"
 	description = "${lore}".split("\\n")
-	rarity = "${rarity}"`;
-
-		/*
-		mutableListOf(
-                Ability().apply {
-                    name = "Teleportaatio"
-                    description = "Teleporttaa sinut 5-palikkaa eteenpäin"
-                    manaCost = 10
-                    cooldown = 1
-                    trigger = Trigger.RIGHT_CLICK
-                    handler = { player ->
-                        tpability(player)
-                    }
-                }
-            )
-		*/
+	rarity = "${rarity}"`
 
 		if (abilities.length > 0) {
 			code += '\n	abilities = mutableListOf(';
@@ -55,7 +44,22 @@
 				}
 			});
 		}
-
+		if (stats.baseDamage > 0) {
+			code += `\n	baseDamage = ${stats.baseDamage}.0f`;
+		}
+		if (stats.baseArmor > 0) {
+			code += `\n	baseArmor = ${stats.baseArmor}.0f`;
+		}
+		if (stats.baseHealth > 0) {
+			code += `\n	baseHealth = ${stats.baseHealth}.0f`;
+		}
+		if (stats.baseSpeed > 0) {
+			code += `\n	baseSpeed = ${stats.baseSpeed}.0f`;
+		}
+		if (stats.baseMana > 0) {
+			code += `\n	baseMana = ${stats.baseMana}.0f`;
+		}
+		
 		code += '\n})';
 	}
 </script>
@@ -89,7 +93,6 @@
 	<Column>
 		<Dropdown
 			titleText="Harvinaisuus"
-			selectedId="0"
 			items={[
 				{ id: '0', text: 'COMMON' },
 				{ id: '1', text: 'UNCOMMON' },
@@ -98,7 +101,7 @@
 				{ id: '4', text: 'MYTHIC' },
 				{ id: '5', text: 'PRICELESS' }
 			]}
-			bind:value={rarity}
+			bind:selectedId={rarity}
 		/>
 	</Column>
 </Row>
@@ -141,7 +144,6 @@
 		<Column>
 			<Dropdown
 				titleText="Ominaisuuden trigger"
-				selectedId="0"
 				items={[
 					{ id: '0', text: 'RIGHT_CLICK' },
 					{ id: '1', text: 'SHIFT_RIGHT_CLICK' },
@@ -150,8 +152,8 @@
 					{ id: '4', text: 'HIT' },
 					{ id: '5', text: 'SNEAK' }
 				]}
-				bind:value={ability.trigger}
-			/>
+				bind:selectedId={ability.trigger}
+							/>
 		</Column>
 	</Row>
 	<Button
@@ -161,6 +163,50 @@
 		iconDescription="Poista ominaisuus"
 	/>
 {/each}
+
+<Row>
+	<Column>
+		<TextInput
+			labelText="Vahinko"
+			placeholder="10"
+			helperText="Käytä kokonaislukuja"
+			bind:value={stats.baseDamage}
+		/>
+	</Column>
+	<Column>
+		<TextInput
+			labelText="Armor"
+			placeholder="10"
+			helperText="Käytä kokonaislukuja"
+			bind:value={stats.baseArmor}
+		/>
+	</Column>
+	<Column>
+		<TextInput
+			labelText="Health"
+			placeholder="10"
+			helperText="Käytä kokonaislukuja"
+			bind:value={stats.baseHealth}
+		/>
+	</Column>
+	<Column>
+		<TextInput
+			labelText="Speed"
+			placeholder="10"
+			helperText="Käytä kokonaislukuja"
+			bind:value={stats.baseSpeed}
+		/>
+	</Column>
+	<Column>
+		<TextInput
+			labelText="Mana"
+			placeholder="10"
+			helperText="Käytä kokonaislukuja"
+			bind:value={stats.baseMana}
+		/>
+	</Column>
+</Row>
+
 <Button on:click={() => (abilities = [...abilities, {}])}>Lisää ominaisuus</Button>
 
 <h2>Statsei</h2>
