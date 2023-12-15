@@ -94,12 +94,12 @@
 		<Dropdown
 			titleText="Harvinaisuus"
 			items={[
-				{ id: '0', text: 'COMMON' },
-				{ id: '1', text: 'UNCOMMON' },
-				{ id: '2', text: 'EPIC' },
-				{ id: '3', text: 'LEGENDARY' },
-				{ id: '4', text: 'MYTHIC' },
-				{ id: '5', text: 'PRICELESS' }
+				{ id: 'COMMON', text: 'COMMON' },
+				{ id: 'UNCOMMON', text: 'UNCOMMON' },
+				{ id: 'EPIC', text: 'EPIC' },
+				{ id: 'LEGENDARY', text: 'LEGENDARY' },
+				{ id: 'MYTHIC', text: 'MYTHIC' },
+				{ id: 'PRICELESS', text: 'PRICELESS' }
 			]}
 			bind:selectedId={rarity}
 		/>
@@ -145,12 +145,12 @@
 			<Dropdown
 				titleText="Ominaisuuden trigger"
 				items={[
-					{ id: '0', text: 'RIGHT_CLICK' },
-					{ id: '1', text: 'SHIFT_RIGHT_CLICK' },
-					{ id: '2', text: 'LEFT_CLICK' },
-					{ id: '3', text: 'SHIFT_LEFT_CLICK' },
-					{ id: '4', text: 'HIT' },
-					{ id: '5', text: 'SNEAK' }
+					{ id: 'RIGHT_CLICK', text: 'RIGHT_CLICK' },
+					{ id: 'SHIFT_RIGHT_CLICK', text: 'SHIFT_RIGHT_CLICK' },
+					{ id: 'LEFT_CLICK', text: 'LEFT_CLICK' },
+					{ id: 'SHIFT_LEFT_CLICK', text: 'SHIFT_LEFT_CLICK' },
+					{ id: 'HIT', text: 'HIT' },
+					{ id: 'SNEAK', text: 'SNEAK' }
 				]}
 				bind:selectedId={ability.trigger}
 							/>
