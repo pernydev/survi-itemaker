@@ -171,7 +171,7 @@
 		<TextInput
 			labelText="Vahinko"
 			placeholder="10"
-			helperText="Käytä kokonaislukuja"
+			helperText="Kuinka paljon vahinkoa tavara tekee. Käytä kokonaislukuja"
 			bind:value={stats.baseDamage}
 		/>
 	</Column>
@@ -179,7 +179,7 @@
 		<TextInput
 			labelText="Armor"
 			placeholder="10"
-			helperText="Käytä kokonaislukuja"
+			helperText="Kuinka paljon armoriin lisätään. Käytä kokonaislukuja"
 			bind:value={stats.baseArmor}
 		/>
 	</Column>
@@ -187,7 +187,7 @@
 		<TextInput
 			labelText="Health"
 			placeholder="10"
-			helperText="Käytä kokonaislukuja"
+			helperText="Kuinka paljon max elämään lisätään. Käytä kokonaislukuja"
 			bind:value={stats.baseHealth}
 		/>
 	</Column>
@@ -195,7 +195,7 @@
 		<TextInput
 			labelText="Speed"
 			placeholder="10"
-			helperText="Käytä kokonaislukuja"
+			helperText="Kuinka paljon nopeuteen lisätään. Käytä kokonaislukuja"
 			bind:value={stats.baseSpeed}
 		/>
 	</Column>
@@ -203,7 +203,7 @@
 		<TextInput
 			labelText="Mana"
 			placeholder="10"
-			helperText="Käytä kokonaislukuja"
+			helperText="Kuinka paljon max manaan lisätään. Käytä kokonaislukuja"
 			bind:value={stats.baseMana}
 		/>
 	</Column>
