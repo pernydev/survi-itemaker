@@ -15,7 +15,7 @@
 		baseArmor: 0,
 		baseHealth: 0,
 		baseSpeed: 0,
-		baseMana: 0,
+		baseMana: 0
 	};
 
 	let code = '';
@@ -24,7 +24,7 @@
 		code = `registerItem("${id}", ItemType().apply {
 	name = "${name}"
 	description = "${lore}".split("\\n")
-	rarity = "${rarity}"`
+	rarity = "${rarity}"`;
 
 		if (abilities.length > 0) {
 			code += '\n	abilities = mutableListOf(';
@@ -59,7 +59,7 @@
 		if (stats.baseMana > 0) {
 			code += `\n	baseMana = ${stats.baseMana}.0f`;
 		}
-		
+
 		code += '\n})';
 	}
 </script>
@@ -153,7 +153,7 @@
 					{ id: 'SNEAK', text: 'SNEAK' }
 				]}
 				bind:selectedId={ability.trigger}
-							/>
+			/>
 		</Column>
 	</Row>
 	<Button
@@ -163,7 +163,9 @@
 		iconDescription="Poista ominaisuus"
 	/>
 {/each}
+<Button on:click={() => (abilities = [...abilities, {}])}>Lisää ominaisuus</Button>
 
+<h2>Statsei</h2>
 <Row>
 	<Column>
 		<TextInput
@@ -206,9 +208,5 @@
 		/>
 	</Column>
 </Row>
-
-<Button on:click={() => (abilities = [...abilities, {}])}>Lisää ominaisuus</Button>
-
-<h2>Statsei</h2>
 
 <CodeSnippet {code} type="multi" />
