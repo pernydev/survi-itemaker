@@ -12,6 +12,7 @@
 
 	let stats = {
 		baseDamage: 0,
+		baseStrength: 0,
 		baseArmor: 0,
 		baseHealth: 0,
 		baseSpeed: 0,
@@ -46,6 +47,9 @@
 		}
 		if (stats.baseDamage > 0) {
 			code += `\n	baseDamage = ${stats.baseDamage}.0f`;
+		}
+		if (stats.baseStrength > 0) {
+			code += `\n	baseStrength = ${stats.baseStrength}.0f`;
 		}
 		if (stats.baseArmor > 0) {
 			code += `\n	baseArmor = ${stats.baseArmor}.0f`;
@@ -173,6 +177,14 @@
 			placeholder="10"
 			helperText="Kuinka paljon vahinkoa tavara tekee. Käytä kokonaislukuja"
 			bind:value={stats.baseDamage}
+		/>
+	</Column>
+	<Column>
+		<TextInput
+			labelText="Voimakkuus"
+			placeholder="10"
+			helperText="Kuinka paljon voimakkuutta tavara lisää pelaajalle (hyvä esim. armoreissa). Käytä kokonaislukuja"
+			bind:value={stats.baseStrength}
 		/>
 	</Column>
 	<Column>
